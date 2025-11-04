@@ -21,8 +21,9 @@ RUN pip install --upgrade pip && pip install django gunicorn djangorestframework
 
 RUN apk del gcc musl-dev libffi-dev 
 # اجرای migration و collectstatic و ساخت ادمین (در صورت نبود)
-CMD python manage.py makemigrations --noinput && \
-    while ! python manage.py migrate --noinput ; sleep 1 ; done  && \
+CMD while ! python manage.py sqlflush  > /dev/null 2>&1; do sleep 1 ; done  && \
+    python manage.py makemigrations --noinput && \
+    python manage.py migrate --noinput  && \
     python manage.py collectstatic --noinput && \
     python manage.py createsuperuser --noinput || true && \
     gunicorn -b 0.0.0.0:8000 flash_card.wsgi

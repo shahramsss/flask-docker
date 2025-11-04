@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Django
+*.sqlite3
+db.sqlite3
+*.pot
+*.pyc
+*.mo
+*.log
+local_settings.py
+settings_local.py
+media/
+staticfiles/
+static/
+
+# Environment
+.env
+.env.*
+
+# Docker
+*.pid
+*.db
+*.tar
+*.gz
+*.bak
+*.swp
+*.tmp
+*.lock
+docker-compose.override.yml
+docker-compose.dev.yml
+.docker/
+*.sock
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Migrations (optional: keep if you want to version them)
+**/migrations/*.pyc
+**/migrations/__pycache__/
+**/migrations/*.py~
+**/migrations/*.log
+dbdata/
